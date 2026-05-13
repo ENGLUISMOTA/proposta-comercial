@@ -10,6 +10,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet" />
+    <!-- Bibliotecas PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         *,
         *::before,
@@ -1166,12 +1169,8 @@
             };
 
             try {
-                const [h2cMod, jsPDFMod] = await Promise.all([
-                    import("https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js"),
-                    import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js"),
-                ]);
-                const html2canvas = h2cMod.default;
-                const { jsPDF } = jsPDFMod;
+                const html2canvas = window.html2canvas;
+                const { jsPDF } = window.jspdf;
 
                 const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
                 const W = 210, H = 297;
