@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposta Comercial – Ivonne Store 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #1844a8;
+            --darkblue: #064499;
+            --light: #F4F7F9;
+            --white: #fff;
+        }
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: var(--blue);
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* ── CONTENT AREA ── */
+        #content-area {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* ── NAV BAR ── */
+        #nav-bar {
+            background: var(--darkblue);
+            color: #fff;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: var(--blue);
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: opacity 0.2s;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .dots-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .dot {
+            height: 8px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.3);
+            width: 8px;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            width: 24px;
+            background: #fff;
+        }
+
+        /* ── PAGES ── */
+        .page {
+            min-height: 100%;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        .page-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* COVER / THANKYOU */
+        .page-cover {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--darkblue) 50%, var(--blue) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 64px;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover-deco {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.08;
+            pointer-events: none;
+        }
+
+        .cover-deco-top {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 40%;
+            background: white;
+            transform: rotate(12deg) translate(25%, -25%);
+        }
+
+        .cover-deco-bot {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 40%;
+            background: white;
+            transform: rotate(-12deg) translate(25%, 25%);
+        }
+
+        .cover-label {
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-mid {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-year {
+            color: #fff;
+            font-size: clamp(72px, 10vw, 108px);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+
+        .cover-divider {
+            width: 2px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.25);
+            flex-shrink: 0;
+        }
+
+        .cover-title {
+            color: #fff;
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .cover-subtitle {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .cover-footer {
+            text-align: right;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-footer .label {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .cover-footer .name {
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* LIGHT PAGES */
+        .page-light {
+            background: var(--light);
+            padding: 56px 64px;
+            min-height: 100vh;
+        }
+
+        .page-h1 {
+            color: var(--blue);
+            font-size: 44px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .page-h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--darkblue);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 28px;
+        }
+
+        /* DARK BLUE PAGES */
+        .page-dark {
+            background: linear-gradient(135deg, var(--darkblue) 0%, var(--blue) 50%, var(--darkblue) 100%);
+            padding: 64px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* CARD */
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        /* ── INTRO PAGE ── */
+        .intro-icon-box {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .intro-h1 {
+            color: #fff;
+            font-size: 44px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .intro-h2 {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 20px;
+            margin-bottom: 48px;
+        }
+
+        .intro-item {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            margin-bottom: 36px;
+        }
+
+        .intro-year {
+            color: rgba(255, 255, 255, 0.38);
+            font-size: 12px;
+            font-weight: 900;
+            text-align: right;
+            width: 68px;
+            flex-shrink: 0;
+            padding-top: 3px;
+        }
+
+        .intro-arrow {
+            color: rgba(255, 255, 255, 0.28);
+            font-size: 22px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .intro-item-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .intro-item-text {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .intro-footer {
+            text-align: right;
+        }
+
+        .intro-footer .label {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .intro-footer .name {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* ── STEPS GRID ── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .step-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .step-n {
+            color: var(--blue);
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .step-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .step-desc {
+            font-family: 'Playfair Display', serif;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: var(--blue);
+            color: #fff;
+            padding: 22px 24px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* ── AVALIACAO ── */
+        .aval-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px 28px 24px 0;
+            margin-bottom: 18px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+        }
+
+        .aval-icon-box {
+            width: 56px;
+            height: 56px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .aval-title {
+            color: var(--blue);
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .aval-label {
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .aval-text {
+            font-family: 'Playfair Display', serif;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* ── OBJETIVOS ── */
+        .obj-hero {
+            background: linear-gradient(135deg, var(--blue), var(--darkblue));
+            color: #fff;
+            border-radius: 14px;
+            padding: 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 20px rgba(24, 68, 168, 0.3);
+        }
+
+        .obj-hero h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .obj-hero p {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .obj-sub-title {
+            color: var(--blue);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .obj-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .obj-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            border-top: 4px solid var(--blue);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.06);
+        }
+
+        .obj-num {
+            color: var(--darkblue);
+            font-weight: 900;
+            font-size: 36px;
+            opacity: 0.18;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .obj-title {
+            color: var(--blue);
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .obj-desc {
+            font-family: 'Playfair Display', serif;
+            color: #555;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ── CRONOGRAMA ── */
+        .crono-mes {
+            color: var(--darkblue);
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .invest-bar {
+            color: #fff;
+            border-radius: 14px;
+            padding: 28px 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .invest-label {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .invest-detail {
+            opacity: 0.88;
+            font-size: 15px;
+        }
+
+        .invest-val {
+            font-size: 48px;
+            font-weight: 900;
+        }
+
+        .marco-box {
+            background: var(--light);
+            border-left: 8px solid var(--blue);
+            border-radius: 14px;
+            padding: 24px 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .marco-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .marco-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--darkblue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .marco-title {
+            color: var(--darkblue);
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .marco-label {
+            color: var(--darkblue);
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 6px;
+        }
+
+        .marco-text {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .nota-box {
+            background: var(--light);
+            border: 1px solid rgba(24, 68, 168, 0.15);
+            border-radius: 10px;
+            padding: 14px 20px;
+        }
+
+        .nota-box p {
+            font-family: 'Playfair Display', serif;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* ── ORCAMENTO ── */
+        .orc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .orc-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 28px 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .orc-card.featured {
+            background: linear-gradient(135deg, var(--blue), var(--darkblue));
+            transform: scale(1.04);
+            box-shadow: 0 8px 28px rgba(24, 68, 168, 0.35);
+        }
+
+        .orc-card-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .orc-card.featured .orc-card-label {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .orc-val {
+            font-size: 38px;
+            font-weight: 900;
+            color: var(--blue);
+        }
+
+        .orc-card.featured .orc-val {
+            font-size: 44px;
+            color: #fff;
+        }
+
+        .orc-obs {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .orc-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        .orc-obs-text {
+            font-family: 'Playfair Display', serif;
+            color: #444;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .roi-box {
+            background: var(--light);
+            border-left: 8px solid var(--darkblue);
+            border-radius: 14px;
+            padding: 22px 28px;
+        }
+
+        .roi-title {
+            color: var(--darkblue);
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* ── THANK YOU – Print button ── */
+        .print-btn {
+            background: #fff;
+            color: var(--blue);
+            border: none;
+            cursor: pointer;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 900;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Montserrat', Arial, sans-serif;
+            transition: background 0.2s;
+            margin-top: 32px;
+        }
+
+        .print-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .print-btn:not(:disabled):hover {
+            background: #F4F7F9;
+        }
+
+        /* ── LOADING OVERLAY ── */
+        #loading-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(6, 68, 153, 0.96);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+
+        #loading-overlay.active {
+            display: flex;
+        }
+
+        #loading-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        #loading-sub {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        #loading-bar-bg {
+            width: 260px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        #loading-bar {
+            height: 100%;
+            width: 0%;
+            background: #fff;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        #loading-pct {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            transform-origin: center;
+            animation: spin 1s linear infinite;
+        }
+
+        /* SCROLL */
+        #content-area::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #content-area::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        #content-area::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOADING OVERLAY -->
+    <div id="loading-overlay">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
+            stroke-linecap="round">
+            <g class="spinner">
+                <path
+                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+            </g>
+        </svg>
+        <p id="loading-title">Gerando PDF completo…</p>
+        <p id="loading-sub">Capturando página 1 de 11</p>
+        <div id="loading-bar-bg">
+            <div id="loading-bar"></div>
+        </div>
+        <p id="loading-pct">0%</p>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div id="content-area"></div>
+
+    <div id="nav-bar">
+        <button class="nav-btn" id="btn-prev" onclick="changePage(-1)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Anterior
+        </button>
+        <div class="dots-container" id="dots"></div>
+        <button class="nav-btn" id="btn-next" onclick="changePage(1)">
+            Próxima
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+            </svg>
+        </button>
+    </div>
+
+    <script>
+        // ─── SVG ICONS ───
+        const ICONS = {
+            check: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+            checkWhite: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+            info: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+            printer: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>`,
+            mappin: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#064499" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+            instagram: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1844a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+            database: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1844a8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`,
+        };
+
+        // ─── PAGES HTML ───
+        const PAGES_HTML = [
+
+            // 0 — COVER
+            () => `
+<div class="page-cover">
+  <div class="cover-deco"><div class="cover-deco-top"></div><div class="cover-deco-bot"></div></div>
+  <div class="cover-label">PROPOSTA COMERCIAL</div>
+  <div class="cover-mid">
+    <div class="cover-year">2026</div>
+    <div class="cover-divider"></div>
+    <div>
+      <h1 class="cover-title">PROPOSTA<br/>COMERCIAL</h1>
+      <p class="cover-subtitle serif">Transformação Digital para<br/>Ivonne Store</p>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <p class="label">Apresentado por</p>
+    <p class="name">Eng Luis Mota</p>
+  </div>
+</div>`,
+
+            // 1 — INTRO
+            () => `
+<div class="page-dark">
+  <div>
+    <div class="intro-icon-box">${ICONS.info}</div>
+    <h1 class="intro-h1">SUMÁRIO EXECUTIVO</h1>
+    <p class="intro-h2">Visão Geral do Projeto</p>
+    ${[
+                    { year: "2026", title: "Transformação Digital", text: "Converter a presença online em um canal efetivo de aquisição de clientes para a loja física, com rastreamento completo de ROI." },
+                    { year: "MAIO", title: "Preparação e Estruturação", text: "Profissionalização da presença digital, otimização de Google Maps e Instagram, e implementação de sistema de cadastro de clientes." },
+                    { year: "JUN–AGO", title: "Ativação e Otimização", text: "Campanhas geolocalizadas de tráfego pago, testes de público, remarketing e consolidação de resultados com análise de fidelização." },
+                ].map(it => `
+      <div class="intro-item">
+        <div class="intro-year">${it.year}</div>
+        <div class="intro-arrow">›</div>
+        <div>
+          <div class="intro-item-title">${it.title}</div>
+          <div class="intro-item-text serif">${it.text}</div>
+        </div>
+      </div>`).join('')}
+  </div>
+  <div class="intro-footer">
+    <p class="label">Apresentado por</p>
+    <p class="name">Equipe de Marketing Digital</p>
+  </div>
+</div>`,
+
+            // 2 — APRESENTAÇÃO
+            () => `
+<div class="page-light page">
+  <div class="page-content">
+    <h1 class="page-h1">APRESENTAÇÃO</h1>
+    <h2 class="page-h2">O Novo Marketing Digital</h2>
+    <div class="card">
+      <p class="serif" style="color:#333;font-size:15px;line-height:1.8;margin-bottom:14px">
+        Hoje, para uma loja crescer, não basta apenas "estar na internet" ou postar fotos no Instagram. O verdadeiro segredo das lojas que lucram alto está em usar o mundo digital para
+        <strong style="color:#1844a8">atrair pessoas para o balcão físico</strong>.
+      </p>
+      <p class="serif" style="color:#333;font-size:15px;line-height:1.8;margin-bottom:14px">
+        O Marketing Digital moderno é exatamente isso: uma ferramenta para encontrar o cliente certo, na hora certa, e convidá-lo para entrar na sua loja.
+      </p>
+      <div class="highlight-box">
+        <strong>Nosso objetivo:</strong> Realizar a Transformação Digital da Ivonne Store. A internet deixará de ser apenas um passatempo para se tornar o seu principal funcionário de vendas.
+      </div>
+      <p class="serif" style="color:#333;font-size:15px;line-height:1.8">
+        Através da <strong style="color:#1844a8">Digitalização</strong>, criaremos um sistema onde cada centavo investido é rastreado. Você saberá exatamente se aquela pessoa que viu sua promoção no celular foi a mesma que apareceu na loja para comprar.
+      </p>
+    </div>
+    <div class="steps-grid">
+      ${[
+                    { n: "01", icon: "📊", t: "Avaliação", d: "Descobrir oportunidades perdidas" },
+                    { n: "02", icon: "🎯", t: "Estratégia", d: "Criar plano de ataque" },
+                    { n: "03", icon: "✅", t: "Preparação", d: "Organizar presença digital" },
+                    { n: "04", icon: "📈", t: "Divulgação", d: "Ativar anúncios estratégicos" },
+                    { n: "05", icon: "👥", t: "Fidelização", d: "Manter clientes voltando" },
+                ].map(s => `
+        <div class="step-card">
+          <div class="step-n">${s.n}</div>
+          <div class="step-icon">${s.icon}</div>
+          <div class="step-title">${s.t}</div>
+          <div class="step-desc serif">${s.d}</div>
+        </div>`).join('')}
+    </div>
+  </div>
+</div>`,
+
+            // 3 — AVALIAÇÃO
+            () => `
+<div class="page-light page">
+  <div class="page-content">
+    <h1 class="page-h1">RESULTADOS DA AVALIAÇÃO</h1>
+    <h2 class="page-h2">Diagnóstico da Presença Digital</h2>
+    <p class="serif" style="color:#555;font-size:15px;line-height:1.8;margin-bottom:28px">
+      Realizamos um "check-up" completo da presença digital da loja para entender como o cliente enxerga a empresa hoje e identificar por que a internet ainda não está trazendo o volume de vendas que poderia.
+    </p>
+    ${[
+                    {
+                        icon: ICONS.mappin, border: '#064499', labelColor: '#064499',
+                        title: 'Google Maps: A Loja "Invisível"',
+                        prob: 'Atualmente, a loja aparece como "Desativada" no Google. Além disso, não há links para o Instagram ou WhatsApp.',
+                        imp: 'Quando alguém em Santa Izabel pesquisa por "loja de roupas", a Ivonne Store não aparece. Isso afasta clientes que já estão na rua prontos para comprar e tira a credibilidade do negócio.',
+                    },
+                    {
+                        icon: ICONS.instagram, border: '#1844a8', labelColor: '#1844a8',
+                        title: "Instagram: Vitrine com Potencial Oculto",
+                        prob: "O perfil funciona apenas como um catálogo de fotos, com pouca padronização visual e falta de convites claros para o cliente agir.",
+                        imp: "A loja parece menos profissional do que realmente é. Sem vídeos atraentes (Reels) e uma organização estratégica, o Instagram atrai apenas curiosos, mas não converte em visitas à loja física.",
+                    },
+                    {
+                        icon: ICONS.database, border: '#1844a8', labelColor: '#1844a8',
+                        title: 'Gestão e Dados: O "Escuro" Comercial',
+                        prob: "Não existe um cadastro organizado de quem já comprou na loja, nem metas de vendas digitais definidas.",
+                        imp: "É impossível saber se o marketing está dando lucro. Sem uma lista de contatos, a loja perde a chance de vender novamente para o mesmo cliente através de uma simples mensagem de WhatsApp.",
+                    },
+                ].map(it => `
+      <div class="aval-card" style="border-left:8px solid ${it.border}">
+        <div class="aval-icon-box">${it.icon}</div>
+        <div style="flex:1">
+          <div class="aval-title">${it.title}</div>
+          <div class="aval-label" style="color:${it.labelColor}">O PROBLEMA:</div>
+          <p class="aval-text">${it.prob}</p>
+          <div class="aval-label" style="color:${it.labelColor}">O IMPACTO:</div>
+          <p class="aval-text" style="margin-bottom:0">${it.imp}</p>
+        </div>
+      </div>`).join('')}
+  </div>
+</div>`,
+
+            // 4 — OBJETIVOS
+            () => `
+<div class="page-light page">
+  <div class="page-content">
+    <h1 class="page-h1">OBJETIVOS</h1>
+    <h2 class="page-h2">Metas e Direcionamento Estratégico</h2>
+    <div class="obj-hero">
+      <h3>Objetivo Geral</h3>
+      <p class="serif">Implementar estratégias de marketing digital para atração e captação de novos clientes.</p>
+    </div>
+    <h3 class="obj-sub-title">Objetivos Específicos</h3>
+    <div class="obj-grid">
+      ${[
+                    { n: "01", t: "Estruturação Digital", d: "Profissionalizar o Instagram e o Google Maps, garantindo que a base esteja pronta e funcional antes do investimento em anúncios." },
+                    { n: "02", t: "Inteligência de Dados", d: "Instalar ferramentas de rastreamento para identificar o público comprador e garantir que a verba seja aplicada apenas em ofertas que tragam retorno financeiro." },
+                    { n: "03", t: "Aquisição de Clientes", d: "Executar campanhas de tráfego pago geolocalizadas para atrair um fluxo constante de novos clientes da região para a loja física." },
+                    { n: "04", t: "Fidelização", d: "Criar um banco de dados de clientes para ações de pós-venda, gerando novas vendas sem custos adicionais de anúncio." },
+                ].map(o => `
+        <div class="obj-card">
+          <div class="obj-num">${o.n}</div>
+          <div class="obj-title">${o.t}</div>
+          <p class="obj-desc">${o.d}</p>
+        </div>`).join('')}
+    </div>
+  </div>
+</div>`,
+
+            // 5 — MÊS 1
+            () => cronoHTML("MÊS 1", "MAIO 2026", "Preparação e Fundação Digital", "R$ 100,00", "Assessoria e Setup", "Diagnóstico completo, otimização de Google Maps e Instagram, desenvolvimento do site institucional e implantação do sistema de cadastro de clientes.", "Casa Arrumada", "Site publicado, perfis profissionais e sistema de cupons pronto.", "A loja está tecnicamente pronta para receber clientes online sem desperdiçar dinheiro.", "linear-gradient(135deg,#1844a8,#064499)"),
+
+            // 6 — MÊS 2
+            () => cronoHTML("MÊS 2", "JUNHO 2026", "Ativação e Testes de Tração", "R$ 200,00", "R$ 100 Assessoria + R$ 100 Anúncios", "Início dos anúncios geolocalizados. Testes de anúncios de reconhecimento de marca (01-15/06) e ofertas de produtos específicos (15-30/06).", "Validação de Fluxo", "Relatório de desempenho do primeiro mês de anúncios.", "Identificação do custo por mensagem no WhatsApp e volume inicial de novos clientes na loja.", "linear-gradient(135deg,#064499,#1844a8)"),
+
+            // 7 — MÊS 3
+            () => cronoHTML("MÊS 3", "JULHO 2026", "Otimização e Escala", "R$ 300,00", "R$ 100 Assessoria + R$ 200 Anúncios", "Testes com novos públicos e formatos (vídeos vs. fotos). Início das campanhas de remarketing e ativação da base de clientes cadastrados no Mês 1.", "Refinamento de Público", "Dashboard de performance atualizado (Looker Studio).", "Definição dos anúncios de maior retorno, garantindo que a verba seja concentrada no que mais vende.", "linear-gradient(135deg,#1844a8,#064499)"),
+
+            // 8 — MÊS 4
+            () => cronoHTML("MÊS 4", "AGOSTO 2026", "Consolidação e Retorno — ROI", "R$ 300,00", "R$ 100 Assessoria + R$ 200 Anúncios", "Aplicação do modelo 'vencedor' dos meses anteriores. Foco total em vendas e análise da taxa de retorno (fidelização) dos clientes captados.", "Fechamento de Ciclo", "Relatório Consolidado do Quadrimestre e Reunião de Alinhamento.", "Apresentação do lucro real gerado e planejamento da expansão para os meses seguintes.", "linear-gradient(135deg,#064499,#1844a8)"),
+
+            // 9 — ORÇAMENTO
+            () => `
+<div class="page-light page">
+  <div class="page-content">
+    <h1 class="page-h1">ORÇAMENTO</h1>
+    <h2 class="page-h2">Resumo de Valores</h2>
+    <div class="orc-grid">
+      <div class="orc-card" style="border-top:4px solid #1844a8">
+        <p class="orc-card-label">Assessoria Técnica (4 meses)</p>
+        <p class="orc-val">R$ 400</p>
+      </div>
+      <div class="orc-card" style="border-top:4px solid #064499">
+        <p class="orc-card-label">Verba para Anúncios</p>
+        <p class="orc-val">R$ 500</p>
+      </div>
+      <div class="orc-card featured">
+        <p class="orc-card-label">Investimento Total</p>
+        <p class="orc-val">R$ 900</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="color:#1844a8;font-size:20px;font-weight:700;margin-bottom:20px">Observações Importantes</h3>
+      ${[
+                    { label: "Assessoria", text: "O valor da Assessoria Técnica refere-se ao serviço de implementação e gestão, enquanto a Verba de Tráfego Pago é o valor destinado diretamente às plataformas (Google/Meta Ads)." },
+                    { label: "Data de pagamento", text: "Dia 01 de cada mês, exceto no mês de Maio, que deve ser feito dia 15 de Maio." },
+                    { label: "Cláusula de Reajuste", text: "Após esse período o valor da assessoria será renegociado com base nos resultados alcançados." },
+                ].map(o => `
+        <div class="orc-obs">
+          <div class="orc-dot"></div>
+          <p class="orc-obs-text"><strong style="color:#1844a8">${o.label}:</strong> ${o.text}</p>
+        </div>`).join('')}
+    </div>
+    <div class="roi-box">
+      <h3 class="roi-title">Retorno Esperado</h3>
+      <p class="serif" style="color:#333;font-size:14px;line-height:1.8">
+        Com base em projetos similares, estimamos que o investimento se pague entre os meses 2 e 3, gerando um fluxo constante de novos clientes e aumentando significativamente a taxa de retorno dos clientes existentes.
+      </p>
+    </div>
+  </div>
+</div>`,
+
+            // 10 — OBRIGADO
+            () => `
+<div class="page-cover">
+  <div class="cover-deco"><div class="cover-deco-top"></div><div class="cover-deco-bot"></div></div>
+  <div style="width:48px;height:48px;background:rgba(255,255,255,0.12);border-radius:10px;display:flex;align-items:center;justify-content:center;position:relative;z-index:1">
+    ${ICONS.checkWhite}
+  </div>
+  <div class="cover-mid">
+    <div class="cover-year">2026</div>
+    <div class="cover-divider"></div>
+    <div>
+      <h1 class="cover-title">OBRIGADO PELA<br/>SUA ATENÇÃO</h1>
+      <p class="cover-subtitle serif">Estamos prontos para transformar<br/>a Ivonne Store digitalmente</p>
+      <button class="print-btn" id="print-btn" onclick="generatePDF()">
+        ${ICONS.printer}
+        <span id="print-btn-text">BAIXAR PROPOSTA EM PDF</span>
+      </button>
+    </div>
+  </div>
+  <div class="cover-footer">
+    <p class="label">Apresentado por</p>
+    <p class="name" style="font-size:15px">Eng Luis Mota</p>
+  </div>
+</div>`,
+
+        ];
+
+        function cronoHTML(mes, periodo, titulo, investimento, detalhes, acoes, marco, entregavel, resultado, grad) {
+            return `
+<div class="page-light page">
+  <div class="page-content">
+    <div class="crono-mes">${mes}</div>
+    <h1 class="page-h1">${periodo}</h1>
+    <h2 class="page-h2">${titulo}</h2>
+    <div class="invest-bar" style="background:${grad}">
+      <div>
+        <div class="invest-label">INVESTIMENTO</div>
+        <div class="invest-detail">${detalhes}</div>
+      </div>
+      <div class="invest-val">${investimento}</div>
+    </div>
+    <div class="card">
+      <h3 style="color:#1844a8;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Ações</h3>
+      <p class="serif" style="color:#444;font-size:15px;line-height:1.8">${acoes}</p>
+    </div>
+    <div class="marco-box">
+      <div class="marco-header">
+        <div class="marco-icon">${ICONS.checkWhite}</div>
+        <div class="marco-title">MARCO: ${marco}</div>
+      </div>
+      <div class="marco-label">ENTREGÁVEL:</div>
+      <p class="marco-text">${entregavel}</p>
+      <div class="marco-label">RESULTADO:</div>
+      <p class="marco-text" style="margin-bottom:0">${resultado}</p>
+    </div>
+    <div class="nota-box">
+      <p><strong>Nota:</strong> Os valores destinados aos anúncios (Google/Meta Ads) são pagos diretamente às plataformas e podem ser ajustados conforme o interesse em acelerar os resultados.</p>
+    </div>
+  </div>
+</div>`;
+        }
+
+        // ─── STATE ───
+        const TOTAL = PAGES_HTML.length;
+        let currentPage = 0;
+        let generating = false;
+
+        function buildDots() {
+            const container = document.getElementById('dots');
+            container.innerHTML = '';
+            for (let i = 0; i < TOTAL; i++) {
+                const btn = document.createElement('button');
+                btn.className = 'dot' + (i === currentPage ? ' active' : '');
+                btn.onclick = () => !generating && goTo(i);
+                container.appendChild(btn);
+            }
+        }
+
+        function goTo(n) {
+            currentPage = Math.max(0, Math.min(TOTAL - 1, n));
+            render();
+        }
+
+        function changePage(dir) {
+            if (!generating) goTo(currentPage + dir);
+        }
+
+        function render() {
+            const area = document.getElementById('content-area');
+            area.innerHTML = PAGES_HTML[currentPage]();
+            area.scrollTop = 0;
+
+            document.getElementById('btn-prev').disabled = currentPage === 0 || generating;
+            document.getElementById('btn-next').disabled = currentPage === TOTAL - 1 || generating;
+            buildDots();
+        }
+
+        // ─── PDF GENERATION ───
+        async function generatePDF() {
+            if (generating) return;
+            generating = true;
+
+            const overlay = document.getElementById('loading-overlay');
+            const bar = document.getElementById('loading-bar');
+            const sub = document.getElementById('loading-sub');
+            const pct = document.getElementById('loading-pct');
+            overlay.classList.add('active');
+
+            const setProgress = (p, page) => {
+                bar.style.width = p + '%';
+                pct.textContent = Math.round(p) + '%';
+                sub.textContent = `Capturando página ${Math.min(page + 1, TOTAL)} de ${TOTAL}`;
+            };
+
+            try {
+                const [h2cMod, jsPDFMod] = await Promise.all([
+                    import("https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js"),
+                    import("https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.es.min.js"),
+                ]);
+                const html2canvas = h2cMod.default;
+                const { jsPDF } = jsPDFMod;
+
+                const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
+                const W = 210, H = 297;
+                const el = document.getElementById('content-area');
+
+                for (let i = 0; i < TOTAL; i++) {
+                    goTo(i);
+                    setProgress((i / TOTAL) * 88, i);
+                    await new Promise(r => setTimeout(r, 700));
+
+                    const canvas = await html2canvas(el, {
+                        scale: 2, useCORS: true, allowTaint: true,
+                        backgroundColor: null, logging: false,
+                        width: el.scrollWidth, height: el.scrollHeight,
+                    });
+
+                    const imgData = canvas.toDataURL("image/jpeg", 0.93);
+                    const imgH = (canvas.height * W) / canvas.width;
+                    if (i > 0) pdf.addPage();
+                    pdf.addImage(imgData, "JPEG", 0, 0, W, Math.min(imgH, H));
+                }
+
+                setProgress(96, TOTAL - 1);
+                pdf.save("Proposta_Comercial_Ivonne_Store_2026.pdf");
+                setProgress(100, TOTAL - 1);
+                goTo(TOTAL - 1);
+            } catch (err) {
+                console.error(err);
+                alert("Erro ao gerar o PDF: " + err.message);
+            } finally {
+                setTimeout(() => {
+                    generating = false;
+                    overlay.classList.remove('active');
+                    bar.style.width = '0%';
+                    render();
+                }, 900);
+            }
+        }
+
+        // ─── KEYBOARD NAV ───
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight') changePage(1);
+            if (e.key === 'ArrowLeft') changePage(-1);
+        });
+
+        // ─── INIT ───
+        render();
+    </script>
+</body>
+
+</html>
