@@ -814,10 +814,18 @@
                 scrollbar-width: none;
             }
 
-            .dots-container::-webkit-scrollbar { display: none; }
+            .dots-container::-webkit-scrollbar {
+                display: none;
+            }
 
-            .dot { width: 6px; height: 6px; }
-            .dot.active { width: 16px; }
+            .dot {
+                width: 6px;
+                height: 6px;
+            }
+
+            .dot.active {
+                width: 16px;
+            }
 
             /* COVER PAGE */
             .page-cover {
@@ -944,8 +952,13 @@
                 padding: 20px 18px;
             }
 
-            .invest-label { font-size: 18px; }
-            .invest-val { font-size: 36px; }
+            .invest-label {
+                font-size: 18px;
+            }
+
+            .invest-val {
+                font-size: 36px;
+            }
 
             /* ORÇAMENTO GRID: 3 → 1 coluna */
             .orc-grid {
@@ -957,15 +970,22 @@
                 transform: scale(1);
             }
 
-            .orc-val { font-size: 30px; }
-            .orc-card.featured .orc-val { font-size: 34px; }
+            .orc-val {
+                font-size: 30px;
+            }
+
+            .orc-card.featured .orc-val {
+                font-size: 34px;
+            }
 
             /* MARCOS */
             .marco-box {
                 padding: 18px 16px;
             }
 
-            .marco-title { font-size: 16px; }
+            .marco-title {
+                font-size: 16px;
+            }
 
             /* HIGHLIGHT */
             .highlight-box {
@@ -989,15 +1009,32 @@
 
         /* Telas muito pequenas (< 400px) */
         @media (max-width: 400px) {
-            .page-cover, .page-light, .page-dark {
+
+            .page-cover,
+            .page-light,
+            .page-dark {
                 padding: 24px 14px;
             }
 
-            .page-h1 { font-size: 24px; }
-            .intro-h1 { font-size: 24px; }
-            .cover-year { font-size: 48px; }
-            .cover-title { font-size: 26px; }
-            .steps-grid { grid-template-columns: 1fr; }
+            .page-h1 {
+                font-size: 24px;
+            }
+
+            .intro-h1 {
+                font-size: 24px;
+            }
+
+            .cover-year {
+                font-size: 48px;
+            }
+
+            .cover-title {
+                font-size: 26px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
