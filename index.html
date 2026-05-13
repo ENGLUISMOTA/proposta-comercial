@@ -1179,18 +1179,46 @@
                 for (let i = 0; i < TOTAL; i++) {
                     goTo(i);
                     setProgress((i / TOTAL) * 88, i);
-                    await new Promise(r => setTimeout(r, 700));
+                    await new Promise(r => setTimeout(r, 900));
 
+                    // Expande temporariamente para capturar o conteúdo completo
+                    const savedStyle = {
+                        overflow: el.style.overflow,
+                        overflowY: el.style.overflowY,
+                        height: el.style.height,
+                        maxHeight: el.style.maxHeight,
+                    };
+                    el.style.overflow = 'visible';
+                    el.style.overflowY = 'visible';
+                    el.style.height = el.scrollHeight + 'px';
+                    el.style.maxHeight = 'none';
+
+                    await new Promise(r => setTimeout(r, 100));
+
+                    const fullH = el.scrollHeight;
                     const canvas = await html2canvas(el, {
-                        scale: 2, useCORS: true, allowTaint: true,
-                        backgroundColor: null, logging: false,
-                        width: el.scrollWidth, height: el.scrollHeight,
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#F4F7F9',
+                        logging: false,
+                        width: el.offsetWidth,
+                        height: fullH,
+                        windowWidth: el.offsetWidth,
+                        windowHeight: fullH,
                     });
 
-                    const imgData = canvas.toDataURL("image/jpeg", 0.93);
+                    // Restaura estilos originais
+                    el.style.overflow = savedStyle.overflow;
+                    el.style.overflowY = savedStyle.overflowY;
+                    el.style.height = savedStyle.height;
+                    el.style.maxHeight = savedStyle.maxHeight;
+
+                    // Calcula altura proporcional na página A4
+                    const imgData = canvas.toDataURL("image/jpeg", 0.95);
                     const imgH = (canvas.height * W) / canvas.width;
-                    if (i > 0) pdf.addPage();
-                    pdf.addImage(imgData, "JPEG", 0, 0, W, Math.min(imgH, H));
+                    if (i > 0) pdf.addPage([W, imgH > H ? imgH : H], 'p');
+                    pdf.addImage(imgData, "JPEG", 0, 0, W, imgH);
                 }
 
                 setProgress(96, TOTAL - 1);
